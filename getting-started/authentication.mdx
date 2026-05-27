@@ -3,15 +3,19 @@ title: "Authentication"
 description: "How to authenticate with the Baseline API"
 ---
 
-All API endpoints require authentication using an API key passed as a header.
+All API requests must include an API key in the `Authorization` header.
 
-## API Key Header
+## Header Format
 
-Include your API key in every request using the `x-api-key` header:
+```text
+Authorization: Token <your-api-key>
+```
+
+## Example Request
 
 ```bash
-curl -X GET https://production.baselinesoftware.com/production/api/borrower \
-  -H "x-api-key: YOUR_API_KEY"
+curl -X GET https://production.baselinesoftware.com/production/api/loan \
+  -H "Authorization: Token your-api-key-here"
 ```
 
 ## Environments
@@ -23,13 +27,15 @@ curl -X GET https://production.baselinesoftware.com/production/api/borrower \
 
 ## Error Responses
 
-If your API key is missing or invalid, you will receive a `401 Unauthorized` response:
+If your API key is missing, invalid, or inactive, you will receive a `403` response:
 
-```json
-{
-  "error": "Unauthorized"
-}
+```text
+403 Not authorized
 ```
+
+## Getting an API Key
+
+API keys are provisioned by the Baseline team. See [Requesting API Keys](/getting-started/requesting-api-keys) for details.
 
 <Warning>
   Keep your API key secure. Do not expose it in client-side code or public repositories.
