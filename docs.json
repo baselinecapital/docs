@@ -12,9 +12,7 @@
     "mdx": {
       "server": "https://production.baselinesoftware.com/production/api",
       "auth": {
-        "method": "key",
-        "name": "Authorization",
-        "inputPrefix": "Token "
+        "method": "bearer"
       }
     }
   },
