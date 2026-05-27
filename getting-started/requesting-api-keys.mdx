@@ -3,14 +3,49 @@ title: "Requesting API Keys"
 description: "How to get access to the Baseline API"
 ---
 
-To get access to the Baseline API, please reach out to the Baseline team directly. API keys are provisioned on a per-client basis.
+Access to the Baseline API is granted through an API key that must be requested through the Baseline Customer Success (CS) team. API keys are always attached to a specific Baseline user and inherit that user's permissions.
 
-## Contact
+## How API Keys Are Issued
 
-Email the Baseline team at [**support@baselinesoftware.com**](mailto:support@baselinesoftware.com) to request API access. Please include:
+- API keys are not self-generated from the UI.
+- All API keys are created and managed by the Baseline team.
+- Each API key is linked to a named user account.
+- The permissions of the API key match the permissions of the associated user.
 
-- Your company name
-- A description of your integration use case
-- The environment you need access to (production, staging)
+This ensures API access follows the same security, auditability, and permission controls as user-driven actions in Baseline.
 
-Once approved, you will receive an API key that you can use to authenticate your requests.
+## How to Request an API Key
+
+To request API access, contact your Baseline Customer Success representative and provide the following information:
+
+- **User account** the API key should be attached to (recommended: a dedicated service or integration user)
+- **Intended use case** (e.g., CRM sync, loan origination automation, borrower intake)
+- **Systems or services** that will use the key
+
+The Baseline team will review the request and provision the API key accordingly.
+
+## User-Based Permissions
+
+Because API keys are attached to users:
+
+- Disabling the user automatically disables the associated API key.
+
+## Receiving Your API Key
+
+Once approved:
+
+- The CS team will securely deliver the API key.
+- The key should be stored immediately in a secure secrets manager.
+- The key will not be recoverable if lost and must be reissued if compromised.
+
+## Best Practices
+
+- Use separate users and keys for different integrations.
+- Avoid sharing API keys across teams.
+
+## Revoking or Updating an API Key
+
+To revoke, rotate, or update an API key:
+
+- Contact the Baseline CS team.
+- Changes take effect immediately once applied.
