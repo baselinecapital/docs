@@ -1,26 +1,41 @@
 ---
 title: "Modify an existing task"
 description: "Update an existing task"
+api: "PATCH /task/{id}"
 ---
 
-`PATCH /task/{id}`
 
 ## Path Parameters
 
-| Parameter | Type | Description |
-| --- | --- | --- |
-| `id` | string | Task ID |
+<ParamField path="id" type="string">
+  Task ID
+</ParamField>
 
 ## Request Body
 
-| Parameter | Type | Description |
-| --- | --- | --- |
-| `Name` | string | Task name |
-| `Description` | string | Task description |
-| `Date_Due` | string (YYYY-MM-DD) | Due date |
-| `Status` | enum | `To Do`, `In Progress`, `Done`, `Not Required` |
-| `Loan_Id` | string | ID of a loan to associate with |
-| `Subtasks` | array | Array of subtask objects |
+<ParamField body="Name" type="string">
+  Task name
+</ParamField>
+
+<ParamField body="Description" type="string">
+  Task description
+</ParamField>
+
+<ParamField body="Date_Due" type="string">
+  Due date
+</ParamField>
+
+<ParamField body="Status" type="enum">
+  `To Do`, `In Progress`, `Done`, `Not Required`
+</ParamField>
+
+<ParamField body="Loan_Id" type="string">
+  ID of a loan to associate with
+</ParamField>
+
+<ParamField body="Subtasks" type="array">
+  Array of subtask objects
+</ParamField>
 
 ## Example Response
 

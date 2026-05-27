@@ -1,9 +1,9 @@
 ---
 title: "Update a loan document"
 description: "Updates an existing document on a loan"
+api: "PATCH /loan/{id}/document/{document_id}"
 ---
 
-`PATCH /loan/{id}/document/{document_id}`
 
 Updates an existing document on a loan. You can update both the document properties and its loan-specific properties (order, section, instructions).
 
@@ -13,27 +13,63 @@ Updates an existing document on a loan. You can update both the document propert
 
 ## Path Parameters
 
-| Parameter | Type | Required | Description |
-| --- | --- | --- | --- |
-| `id` | string | Yes | The loan ID or loan number |
-| `document_id` | string | Yes | The document ID to update |
+<ParamField path="id" type="string" required>
+  The loan ID or loan number
+</ParamField>
+
+<ParamField path="document_id" type="string" required>
+  The document ID to update
+</ParamField>
 
 ## Request Body
 
-| Parameter | Type | Description |
-| --- | --- | --- |
-| `Name` | string | Document name |
-| `Description` | string | Document description |
-| `Status` | string | Document status |
-| `Summary` | string | Document summary |
-| `Is_Shared` | boolean | Whether shared with borrower |
-| `Uploaded_Date` | string | ISO 8601 upload date |
-| `Requested_Date` | string | ISO 8601 requested date |
-| `Expired_Date` | string | ISO 8601 expiry date |
-| `Shared_Date` | string | ISO 8601 shared date |
-| `Order` | integer | Display order |
-| `Section` | string | Section the document belongs to |
-| `Instructions` | string | Instructions |
+<ParamField body="Name" type="string">
+  Document name
+</ParamField>
+
+<ParamField body="Description" type="string">
+  Document description
+</ParamField>
+
+<ParamField body="Status" type="string">
+  Document status
+</ParamField>
+
+<ParamField body="Summary" type="string">
+  Document summary
+</ParamField>
+
+<ParamField body="Is_Shared" type="boolean">
+  Whether shared with borrower
+</ParamField>
+
+<ParamField body="Uploaded_Date" type="string">
+  ISO 8601 upload date
+</ParamField>
+
+<ParamField body="Requested_Date" type="string">
+  ISO 8601 requested date
+</ParamField>
+
+<ParamField body="Expired_Date" type="string">
+  ISO 8601 expiry date
+</ParamField>
+
+<ParamField body="Shared_Date" type="string">
+  ISO 8601 shared date
+</ParamField>
+
+<ParamField body="Order" type="integer">
+  Display order
+</ParamField>
+
+<ParamField body="Section" type="string">
+  Section the document belongs to
+</ParamField>
+
+<ParamField body="Instructions" type="string">
+  Instructions
+</ParamField>
 
 ## Example Response
 

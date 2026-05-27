@@ -8,6 +8,15 @@
     "dark": "#312a4c"
   },
   "favicon": "/favicon.svg",
+  "api": {
+    "mdx": {
+      "server": "https://production.baselinesoftware.com/production/api",
+      "auth": {
+        "method": "key",
+        "name": "x-api-key"
+      }
+    }
+  },
   "navigation": {
     "tabs": [
       {
