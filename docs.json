@@ -13,7 +13,8 @@
       "server": "https://production.baselinesoftware.com/production/api",
       "auth": {
         "method": "key",
-        "name": "x-api-key"
+        "name": "Authorization",
+        "inputPrefix": "Token "
       }
     }
   },
