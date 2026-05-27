@@ -3,9 +3,9 @@
   "theme": "mint",
   "name": "Baseline",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#45396A",
+    "light": "#8e7fbb",
+    "dark": "#312a4c"
   },
   "favicon": "/favicon.svg",
   "navigation": {
@@ -147,6 +147,10 @@
   "navbar": {
     "links": [
       {
+        "label": "Website",
+        "href": "https://www.baselinesoftware.com"
+      },
+      {
         "label": "Support",
         "href": "mailto:support@baselinesoftware.com"
       }
@@ -159,8 +163,8 @@
   },
   "footer": {
     "socials": {
-      "linkedin": "https://linkedin.com/company/baselinelending",
-      "github": "https://github.com/baselinecapital"
+      "linkedin": "https://www.linkedin.com/company/baselinelending",
+      "website": "https://www.baselinesoftware.com"
     }
   }
 }
