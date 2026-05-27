@@ -1,0 +1,24 @@
+---
+title: "Get a vendor"
+description: "Retrieve a single vendor by ID"
+---
+
+`GET /vendor/{id}`
+
+## Path Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `id` | string | ID of a vendor |
+
+## Example Response
+
+```json
+{
+  "vendor": {
+    "Id": "1234",
+    "Name": "John Smith",
+    "Email": "john.smith@mailsac.com"
+  }
+}
+```

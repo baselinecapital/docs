@@ -1,0 +1,33 @@
+---
+title: "Get all borrowers"
+description: "Retrieve a paginated list of all borrowers"
+---
+
+`GET /borrower`
+
+## Query Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `page` | object | Pagination parameters |
+| `format` | enum | Response format: `json` or `csv` |
+
+## Example Response
+
+```json
+{
+  "borrowers": [{
+    "Id": "1234",
+    "Name": "John Smith",
+    "Phone": "12345678901",
+    "Email": "john.smith@mailsac.com",
+    "Date_Birth": "2000-01-01",
+    "Is_Company": false,
+    "Address_Street1": "123 Main St.",
+    "Address_City": "New York",
+    "Address_State": "NY",
+    "Address_Country": "US"
+  }],
+  "pagination": { "total": 1, "page_size": 10, "page": 0 }
+}
+```

@@ -1,0 +1,34 @@
+---
+title: "Get a fund's funding sources"
+description: "Retrieve all funding sources for a specific fund"
+---
+
+`GET /fund/{id}/funding`
+
+## Path Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `id` | string | Fund ID |
+
+## Example Response
+
+```json
+{
+  "funding_sources": [
+    {
+      "id": "69acd802-8d84-4f8b-bd44-18a245b03459",
+      "investor_id": "1234",
+      "investor_name": "John Smith",
+      "class": "Senior",
+      "rate": 0.1,
+      "amount": 350000,
+      "date": "2025-03-04",
+      "returned": 1000,
+      "balance": 340000,
+      "income": 2000,
+      "drip": 100
+    }
+  ]
+}
+```

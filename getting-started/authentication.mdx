@@ -1,0 +1,36 @@
+---
+title: "Authentication"
+description: "How to authenticate with the Baseline API"
+---
+
+All API endpoints require authentication using an API key passed as a header.
+
+## API Key Header
+
+Include your API key in every request using the `x-api-key` header:
+
+```bash
+curl -X GET https://production.baselinesoftware.com/production/api/borrower \
+  -H "x-api-key: YOUR_API_KEY"
+```
+
+## Environments
+
+| Environment | Base URL |
+| --- | --- |
+| Production | `https://production.baselinesoftware.com/production/api` |
+| Staging | `https://staging.baselinesoftware.com/staging/api` |
+
+## Error Responses
+
+If your API key is missing or invalid, you will receive a `401 Unauthorized` response:
+
+```json
+{
+  "error": "Unauthorized"
+}
+```
+
+<Warning>
+  Keep your API key secure. Do not expose it in client-side code or public repositories.
+</Warning>

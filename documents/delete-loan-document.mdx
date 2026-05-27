@@ -1,0 +1,27 @@
+---
+title: "Delete a loan document"
+description: "Removes a document from a loan"
+---
+
+`DELETE /loan/{id}/document/{document_id}`
+
+Removes a document from a loan. If this is the last loan linked to the document, the document and all its uploaded files are permanently deleted. If the document is still linked to other loans, only the association is removed. Locked documents cannot be deleted.
+
+## Path Parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | string | Yes | The loan ID or loan number |
+| `document_id` | string | Yes | The document ID to delete |
+
+## Example Response
+
+```json
+{
+  "success": true,
+  "document": {
+    "Id": "doc-456",
+    "Name": "Promissory Note"
+  }
+}
+```

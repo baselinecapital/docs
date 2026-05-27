@@ -1,0 +1,27 @@
+---
+title: "Get all tasks"
+description: "Retrieve a paginated list of all tasks"
+---
+
+`GET /task`
+
+## Query Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `page` | object | Pagination parameters |
+
+## Example Response
+
+```json
+{
+  "tasks": [{
+    "Id": "1234",
+    "Name": "Validate credit score",
+    "Status": "To Do",
+    "Date_Due": "2024-12-12",
+    "Loan_Id": "5678"
+  }],
+  "pagination": { "total": 1, "page_size": 10, "page": 0 }
+}
+```

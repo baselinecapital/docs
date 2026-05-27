@@ -1,0 +1,67 @@
+---
+title: "Graph API"
+description: "GraphQL interface for querying your Baseline data"
+---
+
+<Note>
+  **Enterprise Feature** — The Graph API is an enterprise feature. Please contact your account manager to enable it.
+</Note>
+
+## Overview
+
+The Graph API provides a **GraphQL** interface for querying your Baseline data. It supports complex queries with filtering, sorting, pagination, aggregations, and relationships between tables — all in a single request.
+
+The API is **introspectable**, meaning you can query the schema itself to discover available tables, fields, and relationships. Use any standard GraphQL client or tool (e.g., Postman, Insomnia, GraphQL Playground) to explore the schema.
+
+## Endpoint
+
+```text
+POST /api/graph
+```
+
+## Authentication
+
+Requires API key authentication (same as all other Baseline API endpoints).
+
+## Request Body
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `query` | string | Yes | A GraphQL query string |
+| `variables` | object | No | Variables referenced in the query |
+| `operationName` | string | No | The name of the operation to execute (if the query contains multiple operations) |
+
+## Introspection
+
+The Graph API supports standard GraphQL introspection. You can query the schema to discover all available types, fields, and relationships:
+
+```json
+{
+  "query": "{ __schema { types { name fields { name type { name kind ofType { name } } } } } }"
+}
+```
+
+Or query a specific table's fields:
+
+```json
+{
+  "query": "{ __type(name: \"loans\") { fields { name type { name kind } } } }"
+}
+```
+
+## Query Features
+
+- **Filtering:** `where: { field: { _eq: value } }` with operators `_eq`, `_neq`, `_gt`, `_gte`, `_lt`, `_lte`, `_in`, `_like`, `_ilike`, `_is_null`
+- **Sorting:** `order_by: { field: asc }` or `desc`
+- **Pagination:** `limit` and `offset`
+- **Aggregations:** `loans_aggregate { aggregate { count sum { amount } avg { rate } } }`
+- **Relationships:** Traverse related tables directly in your query (e.g., `loans { borrows { person { name } } }`)
+
+## Error Responses
+
+| Status | Description |
+| --- | --- |
+| `400` | Missing GraphQL query in request body |
+| `403` | Authentication failed or insufficient permissions |
+
+GraphQL-level errors are returned in the standard `errors` array within the JSON response body.

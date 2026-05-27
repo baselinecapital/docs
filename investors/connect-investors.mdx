@@ -1,0 +1,27 @@
+---
+title: "Connect an investor to another investor"
+description: "Will connect a person to a company or vice versa"
+---
+
+`PUT /investor/{id}/connect/{to}`
+
+## Path Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `id` | string | ID of an investor |
+| `to` | string | ID of an investor to connect to |
+
+## Example Response
+
+```json
+{
+  "investor": {
+    "Id": "1234",
+    "Name": "John Smith",
+    "Companies": [
+      { "Id": "4567", "Name": "Acme Co" }
+    ]
+  }
+}
+```

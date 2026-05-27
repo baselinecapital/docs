@@ -1,0 +1,76 @@
+---
+title: "Available Tables and Fields"
+description: "Complete reference of all tables and fields available through the Graph API"
+---
+
+A complete reference of all tables and fields available through the Graph API. You can also discover these dynamically via [introspection](/everything-api/graph-api#introspection).
+
+## Core Lending
+
+**loans** `id`, `number`, `name`, `amount`, `status`, `substatus`, `date_closing`, `use_of_funds`, `program`, `frequency`, `regular_payment`, `date_firstpayment`, `date_maturity`, `date_paidoff`, `date_application_submitted`, `date_application_requested`, `term`, `grace_days`, `grace_method`, `due_day`, `rate`, `loan_type`, `date_denied`, `date_status_change`, `date_substatus_change`, `product_id`, `application_id`, `signature_id`, `created_at`, `updated_at`
+
+**loan\_status\_changes** `id`, `loan_id`, `from_status`, `to_status`, `from_substatus`, `to_substatus`, `from_date`, `to_date`, `attention_notification_sent`, `critical_notification_sent`, `created_at`, `updated_at`
+
+**payments** `id`, `date`, `amount`, `type`, `method`, `notes`, `date_release`, `date_reversed`, `date_paidto`, `date_due`, `loan_id`, `person_id`, `admin_id`, `created_at`, `updated_at`
+
+**transactions** `id`, `date`, `debit`, `credit`, `amount`, `gl`, `is_reversed`, `is_paidout`, `date_paidout`, `order`, `loan_id`, `payment_id`, `funding_source_id`, `person_id`, `charge_id`, `created_at`, `updated_at`
+
+**charges** `id`, `name`, `amount`, `date_charged`, `date_due`, `loan_id`, `person_id`, `field_id`, `created_at`, `updated_at`
+
+**schedules** `id`, `due`, `period`, `principal`, `interest`, `to_trust`, `balance`, `is_next`, `is_payoff`, `loan_id`, `created_at`, `updated_at`
+
+**funding\_sources** `id`, `class`, `rate`, `original_amount`, `committed_amount`, `date_effective`, `date_funded`, `date_firstinvested`, `loan_id`, `investor_id`, `offering_id`, `created_at`, `updated_at`
+
+---
+
+## People / Organizations / Applications
+
+**people** `id`, `name`, `type`, `status`, `email`, `phone`, `phone_secondary`, `gender`, `entity_type`, `jurisdiction`, `date_birth`, `role`, `citizenship`, `marital_status`, `credit_score`, `credit_score_date`, `is_borrower`, `is_investor`, `is_vendor`, `is_fund`, `date_last_activity`, `created_at`, `updated_at`
+
+**admins** `id`, `name`, `permission`, `is_active`, `phone`, `created_at`, `updated_at`
+
+**applications** `id`, `date_submitted`, `person_id`, `admin_id`, `submitter_id`, `created_at`, `updated_at`
+
+---
+
+## Addresses / Property / Documents
+
+**addresses** `id`, `street1`, `street2`, `city`, `state`, `zipcode`, `country`, `county`, `type`, `person_id`, `created_at`, `updated_at`
+
+**address\_details** `loan_id`, `address_id`, `created_at`, `updated_at`
+
+**documents** `id`, `name`, `description`, `section`, `status`, `type`, `size`, `filename`, `uploaded_date`, `requested_date`, `expired_date`, `is_shared`, `is_credit_report`, `is_flood_report`, `is_fraud_report`, `reject_reason`, `instructions`, `borrower_id`, `guarantor_id`, `fund_id`, `address_id`, `template_id`, `created_at`, `updated_at`
+
+**insurances** `id`, `premium`, `effective`, `expiration`, `policy_number`, `carrier`, `type`, `insured_name`, `coverage_amount`, `mortgagee`, `address_id`, `created_at`, `updated_at`
+
+**valuations** `id`, `name`, `appraiser`, `report_date`, `value`, `valuation_type`, `market_rent`, `source`, `address_id`, `created_at`, `updated_at`
+
+---
+
+## Budget / Tasks / Comments / Offerings
+
+**budget\_items** `id`, `name`, `amount`, `status`, `section`, `date_approved`, `date_rejected`, `date_reviewed`, `date_submitted`, `address_id`, `loan_id`, `data`, `created_at`, `updated_at`
+
+**budget\_draws** `id`, `status`, `reason`, `date_submitted`, `date_approved`, `date_paid`, `date_reviewed`, `address_id`, `loan_id`, `created_at`, `updated_at`
+
+**budget\_activities** `id`, `description`, `amount`, `amount_requested`, `status`, `date_submitted`, `date_approved`, `date_reviewed`, `budget_item_id`, `budget_draw_id`, `created_at`, `updated_at`
+
+**tasks** `id`, `name`, `description`, `status`, `date_due`, `days_due`, `loan_id`, `task_template_id`, `created_at`, `updated_at`
+
+**comments** `id`, `text`, `is_pinned`, `loan_id`, `document_id`, `admin_id`, `person_id`, `created_at`, `updated_at`
+
+**offerings** `id`, `name`, `type`, `date_issue`, `date_published`, `overview`, `fund_id`, `created_at`, `updated_at`
+
+---
+
+## Join / Link Tables
+
+These tables represent relationships between entities and can be traversed in queries.
+
+**borrows** `loan_id`, `person_id`, `primary`, `created_at`, `updated_at`
+
+**guarantees** `loan_id`, `person_id`, `primary`, `created_at`, `updated_at`
+
+**loan\_owners** `id`, `loan_id`, `admin_id`
+
+**loan\_documents** `loan_id`, `document_id`, `created_at`, `updated_at`

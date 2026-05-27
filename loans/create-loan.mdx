@@ -1,0 +1,59 @@
+---
+title: "Create a new loan"
+description: "Create a new loan in Baseline"
+---
+
+`POST /loan`
+
+All fields are optional. Any field available in the default product in your account can be set via a body parameter using its name. For example, a field named "Foo Bar" can be set by sending `{Foo_Bar:1234}` in the request.
+
+## Request Body
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `Id` | string | (Optional) If not set, an ID will be generated automatically. |
+| `Name` | string | Loan name |
+| `Status` | enum | `lead`, `processing`, `underwriting`, `approved`, `closed`, `servicing`, `archived` (default: `servicing`) |
+| `Borrower_Name` | string | Borrower full name |
+| `Borrower_Email` | string | If a borrower with the same verified email already exists, that borrower will be attached. If not, a new borrower will be created. |
+| `Borrower_Id` | string | If a borrower with the same ID already exists, that borrower will be attached. If not, a new borrower will be created. |
+| `Address_Street1` | string | Street address |
+| `Address_City` | string | City |
+| `Address_State` | string | State |
+| `Address_Zipcode` | string | Zip code |
+| `Loan_Amount` | float | Loan amount |
+| `Rate` | float | Interest rate |
+| `Origination` | date (YYYY-MM-DD) | Origination date |
+| `Maturity` | date (YYYY-MM-DD) | Maturity date |
+| `Addresses` | array | Additional collateral addresses |
+
+## Example Response
+
+```json
+{
+    "loan": {
+        "Id": "1234",
+        "Name": "My awesome loan",
+        "Status": "servicing",
+        "Address_Street1": "1234 Main St",
+        "Address_City": "Flint",
+        "Address_State": "Michigan",
+        "Address_Zipcode": "123456",
+        "Address_Country": "United States",
+        "Borrower_Name": "Acme Co",
+        "Borrower_Email": "email@example.com",
+        "Loan_Amount": 326000,
+        "Rate": 0.1095,
+        "Term": 5,
+        "Origination": "2023-03-31",
+        "Maturity": "2023-08-31",
+        "Rate_Type": "Fixed",
+        "Frequency": "Monthly",
+        "Amortization_Type": "Interest-Only",
+        "First_Payment": "2023-05-31",
+        "Principal_Interest": 2974.75,
+        "Regular_Payment": 2974.75,
+        "Per_Diem": 97.8
+    }
+}
+```

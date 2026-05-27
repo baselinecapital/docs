@@ -1,0 +1,46 @@
+---
+title: "Update a loan address"
+description: "Updates an existing address on a loan"
+---
+
+`PATCH /loan/{id}/address/{address_id}`
+
+Updates an existing address on a loan. Only include the fields you want to change. Any custom collateral fields defined in your product can also be updated by including them in the request body using their field name.
+
+## Path Parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | string | Yes | The loan ID or loan number |
+| `address_id` | string | Yes | The address ID to update |
+
+## Request Body
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `Address_Street1` | string | Street address line 1 |
+| `Address_Street2` | string | Street address line 2 |
+| `Address_City` | string | City |
+| `Address_State` | string | State |
+| `Address_Zipcode` | string | Zip code |
+| `Address_Country` | string | Country |
+| `Address_County` | string | County |
+
+## Example Response
+
+```json
+{
+  "loan": {
+    "Id": "loan-123",
+    "Addresses": [
+      {
+        "Id": "addr-456",
+        "Street1": "456 Oak Ave",
+        "City": "Los Angeles",
+        "State": "CA",
+        "Zip": "90001"
+      }
+    ]
+  }
+}
+```

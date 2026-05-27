@@ -1,0 +1,28 @@
+---
+title: "Remove an address from a loan"
+description: "Removes an address from a loan and deletes any associated collateral field values"
+---
+
+`DELETE /loan/{id}/address/{address_id}`
+
+Removes an address from a loan and deletes any associated collateral field values. The address itself is unlinked from the loan.
+
+## Path Parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | string | Yes | The loan ID or loan number |
+| `address_id` | string | Yes | The address ID to remove |
+
+## Example Response
+
+```json
+{
+  "loan": {
+    "Id": "loan-123",
+    "Name": "123 Main St",
+    "Status": "servicing",
+    "Addresses": []
+  }
+}
+```

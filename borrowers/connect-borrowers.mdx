@@ -1,0 +1,30 @@
+---
+title: "Connect a borrower to another borrower"
+description: "Will connect a person to a company or vice versa"
+---
+
+`PUT /borrower/{id}/connect/{to}`
+
+## Path Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `id` | string | ID of a borrower |
+| `to` | string | ID of a borrower to connect to |
+
+## Example Response
+
+```json
+{
+  "borrower": {
+    "Id": "1234",
+    "Name": "John Smith",
+    "Companies": [
+      {
+        "Id": "4567",
+        "Name": "Acme Co"
+      }
+    ]
+  }
+}
+```

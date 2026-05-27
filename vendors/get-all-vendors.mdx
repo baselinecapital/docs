@@ -1,0 +1,26 @@
+---
+title: "Get all vendors"
+description: "Retrieve a paginated list of all vendors"
+---
+
+`GET /vendor`
+
+## Query Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `page` | object | Pagination parameters |
+
+## Example Response
+
+```json
+{
+  "vendors": [{
+    "Id": "1234",
+    "Name": "John Smith",
+    "Email": "john.smith@mailsac.com",
+    "Is_Company": false
+  }],
+  "pagination": { "total": 1, "page_size": 10, "page": 0 }
+}
+```

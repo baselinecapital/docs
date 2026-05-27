@@ -1,0 +1,41 @@
+---
+title: "Get loan documents"
+description: "Retrieves all documents associated with a specific loan"
+---
+
+`GET /loan/{id}/document`
+
+Retrieves all documents associated with a specific loan. Each document includes signed upload and download URLs for file management. Documents are returned sorted by Order (ascending), then by Name (ascending).
+
+## Path Parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | string | Yes | The loan ID or loan number |
+
+## Example Response
+
+```json
+{
+  "documents": [
+    {
+      "Id": "abc123",
+      "Name": "Promissory Note",
+      "Description": "Signed promissory note",
+      "Status": "approved",
+      "Type": "application/pdf",
+      "Size": 245000,
+      "Is_Shared": true,
+      "Uploaded_Date": "2024-01-15T12:00:00.000Z",
+      "Section": "closing",
+      "Instructions": "Please sign and return",
+      "Download_Url": "https://signed-url...",
+      "Upload_Url": "https://signed-url...",
+      "Borrower": {
+        "Id": "person-123",
+        "Name": "John Doe"
+      }
+    }
+  ]
+}
+```

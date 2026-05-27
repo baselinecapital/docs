@@ -1,0 +1,41 @@
+---
+title: "Modify an existing investor"
+description: "Update an existing investor's information"
+---
+
+`PATCH /investor/{id}`
+
+## Path Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `id` | string | ID of an investor |
+
+## Request Body
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `Name` | string | Full name |
+| `First_Name` | string | First name |
+| `Last_Name` | string | Last name |
+| `Phone` | string | Phone in format 12345678901 |
+| `Phone_Secondary` | string | Secondary phone number |
+| `Date_Birth` | string (YYYY-MM-DD) | Date of birth |
+| `Is_Company` | boolean | Whether this is a company |
+| `Address_Street1` | string | Street address line 1 |
+| `Address_Street2` | string | Street address line 2 |
+| `Address_City` | string | City |
+| `Address_State` | string | State |
+| `Address_Country` | string | Country |
+
+## Example Response
+
+```json
+{
+  "investor": {
+    "Id": "1234",
+    "Name": "John Smith",
+    "Email": "john.smith@mailsac.com"
+  }
+}
+```

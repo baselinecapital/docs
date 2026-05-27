@@ -1,0 +1,45 @@
+---
+title: "Modify an existing loan"
+description: "Update fields on an existing loan"
+---
+
+`PATCH /loan/{id}`
+
+All fields are optional. Any field available in the loan can be set via a body parameter using its name. For example, a field named "Foo Bar" can be set by sending `{Foo_Bar:1234}` in the request.
+
+## Path Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `id` | string | Loan ID |
+
+## Request Body
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `Name` | string | Loan name |
+| `Status` | enum | `lead`, `processing`, `underwriting`, `approved`, `closed`, `servicing`, `archived` |
+| `Borrower_Name` | string | Borrower name |
+| `Borrower_Email` | string | Borrower email |
+| `Address_Street1` | string | Street address |
+| `Address_City` | string | City |
+| `Address_State` | string | State |
+| `Address_Zipcode` | string | Zip code |
+| `Loan_Amount` | float | Loan amount |
+| `Rate` | float | Interest rate |
+| `Origination` | date (YYYY-MM-DD) | Origination date |
+| `Maturity` | date (YYYY-MM-DD) | Maturity date |
+
+## Example Response
+
+```json
+{
+  "loan": {
+    "Id": "1234",
+    "Name": "My awesome loan",
+    "Status": "servicing",
+    "Loan_Amount": 326000,
+    "Rate": 0.1095
+  }
+}
+```

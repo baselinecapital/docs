@@ -1,0 +1,27 @@
+---
+title: "Connect a vendor to another vendor"
+description: "Will connect a person to a company or vice versa"
+---
+
+`PUT /vendor/{id}/connect/{to}`
+
+## Path Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `id` | string | ID of a vendor |
+| `to` | string | ID of a vendor to connect to |
+
+## Example Response
+
+```json
+{
+  "vendor": {
+    "Id": "1234",
+    "Name": "John Smith",
+    "Companies": [
+      { "Id": "4567", "Name": "Acme Co" }
+    ]
+  }
+}
+```

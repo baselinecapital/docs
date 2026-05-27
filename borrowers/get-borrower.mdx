@@ -1,0 +1,31 @@
+---
+title: "Get a borrower"
+description: "Retrieve a single borrower by ID"
+---
+
+`GET /borrower/{id}`
+
+## Path Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `id` | string | ID of a borrower |
+
+## Example Response
+
+```json
+{
+  "borrower": {
+    "Id": "1234",
+    "Name": "John Smith",
+    "Phone": "12345678901",
+    "Email": "john.smith@mailsac.com",
+    "Date_Birth": "2000-01-01",
+    "Is_Company": false,
+    "Address_Street1": "123 Main St.",
+    "Address_City": "New York",
+    "Address_State": "NY",
+    "Address_Country": "US"
+  }
+}
+```

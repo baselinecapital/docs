@@ -1,0 +1,47 @@
+---
+title: "Create a loan document"
+description: "Creates a new document and associates it with the specified loan"
+---
+
+`POST /loan/{id}/document`
+
+## Path Parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | string | Yes | The loan ID or loan number |
+
+## Request Body
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| `Name` | string | Yes | Document name |
+| `Description` | string | No | Document description |
+| `Status` | string | No | Document status (e.g., pending, approved) |
+| `Summary` | string | No | Document summary |
+| `Is_Shared` | boolean | No | Whether the document is shared with the borrower |
+| `Uploaded_Date` | string | No | ISO 8601 date when the file was uploaded |
+| `Requested_Date` | string | No | ISO 8601 date when the document was requested |
+| `Expired_Date` | string | No | ISO 8601 date when the document expires |
+| `Shared_Date` | string | No | ISO 8601 date when the document was shared |
+| `Borrower_Id` | string | No | ID of the borrower to associate |
+| `Guarantor_Id` | string | No | ID of the guarantor to associate |
+| `Fund_Id` | string | No | ID of the fund to associate |
+| `Order` | integer | No | Display order |
+| `Section` | string | No | Section the document belongs to |
+| `Instructions` | string | No | Instructions for the document |
+
+## Example Response
+
+```json
+{
+  "document": {
+    "Id": "doc-456",
+    "Name": "Promissory Note",
+    "Status": "pending",
+    "Section": "closing",
+    "Instructions": "Please sign and return",
+    "Upload_Url": "https://signed-url..."
+  }
+}
+```

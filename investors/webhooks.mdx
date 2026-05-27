@@ -1,0 +1,48 @@
+---
+title: "Webhooks"
+description: "Investor webhook event payloads"
+---
+
+All webhook events are sent via a POST request with the following payloads:
+
+## investor.created
+
+```json
+{
+    "event": "investor.created",
+    "data": {
+        "borrower": {
+            "Id": "1234",
+            "Name": "John Smith"
+        }
+    }
+}
+```
+
+## investor.updated
+
+```json
+{
+    "event": "investor.updated",
+    "data": {
+        "borrower": {
+            "Id": "1234",
+            "Name": "John Smith"
+        }
+    }
+}
+```
+
+## investor.deleted
+
+```json
+{
+    "event": "investor.deleted",
+    "data": {
+        "borrower": {
+            "Id": "1234",
+            "Name": "John Smith"
+        }
+    }
+}
+```
