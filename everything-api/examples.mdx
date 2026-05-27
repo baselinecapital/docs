@@ -1,0 +1,149 @@
+---
+title: "Examples"
+description: "Practical examples for common Graph API queries"
+---
+
+Practical examples for common Graph API queries. All examples use `POST /api/graph` with a JSON request body.
+
+## Basic Queries
+
+### Get all servicing loans
+
+```json
+{
+  "query": "{ loans(where: {status: {_eq: \"servicing\"}}, order_by: {name: asc}) { id name amount status rate date_maturity } }"
+}
+```
+
+### Get a specific loan by ID
+
+```json
+{
+  "query": "query GetLoan($id: uuid!) { loans_by_pk(id: $id) { id name amount status rate term frequency regular_payment date_maturity } }",
+  "variables": { "id": "your-loan-id" }
+}
+```
+
+### Get all borrowers
+
+```json
+{
+  "query": "{ people(where: {is_borrower: {_eq: true}}, order_by: {name: asc}) { id name email phone status entity_type } }"
+}
+```
+
+---
+
+## Filtering
+
+### Loans maturing in the next 90 days
+
+```json
+{
+  "query": "query ExpiringLoans($today: date!, $cutoff: date!) { loans(where: {status: {_eq: \"servicing\"}, date_maturity: {_gte: $today, _lte: $cutoff}}, order_by: {date_maturity: asc}) { id name amount date_maturity } }",
+  "variables": {
+    "today": "2025-01-01",
+    "cutoff": "2025-04-01"
+  }
+}
+```
+
+### Loans with amount greater than \$500,000
+
+```json
+{
+  "query": "{ loans(where: {amount: {_gt: 500000}, status: {_eq: \"servicing\"}}) { id name amount rate status } }"
+}
+```
+
+### Search people by name (case-insensitive)
+
+```json
+{
+  "query": "{ people(where: {name: {_ilike: \"%smith%\"}}) { id name email phone is_borrower is_investor } }"
+}
+```
+
+---
+
+## Relationships
+
+### Loans with their borrowers
+
+```json
+{
+  "query": "{ loans(where: {status: {_eq: \"servicing\"}}, limit: 20) { id name amount status borrows { person { id name email phone } } } }"
+}
+```
+
+### Investor with their funding sources
+
+```json
+{
+  "query": "query InvestorPortfolio($id: uuid!) { people_by_pk(id: $id) { id name email funding_sources(order_by: {date_funded: desc}) { id class rate original_amount committed_amount date_funded loan { id name status } } } }",
+  "variables": { "id": "your-investor-id" }
+}
+```
+
+---
+
+## Pagination
+
+### Paginated loans (page 2, 25 per page)
+
+```json
+{
+  "query": "{ loans(limit: 25, offset: 25, order_by: {created_at: desc}) { id name amount status created_at } }"
+}
+```
+
+---
+
+## Aggregations
+
+### Total loan portfolio summary
+
+```json
+{
+  "query": "{ loans_aggregate(where: {status: {_eq: \"servicing\"}}) { aggregate { count sum { amount } avg { rate } min { rate } max { rate } } } }"
+}
+```
+
+**Response:**
+
+```json
+{
+  "data": {
+    "loans_aggregate": {
+      "aggregate": {
+        "count": 142,
+        "sum": { "amount": 47500000 },
+        "avg": { "rate": 0.0925 },
+        "min": { "rate": 0.06 },
+        "max": { "rate": 0.15 }
+      }
+    }
+  }
+}
+```
+
+### Count loans by status
+
+```json
+{
+  "query": "{ servicing: loans_aggregate(where: {status: {_eq: \"servicing\"}}) { aggregate { count } } closed: loans_aggregate(where: {status: {_eq: \"closed\"}}) { aggregate { count } } lead: loans_aggregate(where: {status: {_eq: \"lead\"}}) { aggregate { count } } }"
+}
+```
+
+---
+
+## Combining Features
+
+### Full loan detail with all related data
+
+```json
+{
+  "query": "query FullLoanDetail($id: uuid!) { loans_by_pk(id: $id) { id name amount status rate term frequency date_maturity regular_payment borrows { person { id name email phone } } guarantees { person { id name email } } address_details { address { street1 city state zipcode insurances { carrier type coverage_amount expiration } valuations(order_by: {report_date: desc}, limit: 1) { value valuation_type report_date } } } payments(order_by: {date: desc}, limit: 5) { id date amount type method } schedules(where: {is_next: {_eq: true}}) { due principal interest balance } loan_documents { document { id name status type } } tasks(where: {status: {_neq: \"completed\"}}) { id name status date_due } } }",
+  "variables": { "id": "your-loan-id" }
+}
+```

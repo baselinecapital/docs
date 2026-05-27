@@ -1,0 +1,48 @@
+---
+title: "Webhooks"
+description: "Vendor webhook event payloads"
+---
+
+All webhook events are sent via a POST request with the following payloads:
+
+## vendor.created
+
+```json
+{
+    "event": "vendor.created",
+    "data": {
+        "borrower": {
+            "Id": "1234",
+            "Name": "John Smith"
+        }
+    }
+}
+```
+
+## vendor.updated
+
+```json
+{
+    "event": "vendor.updated",
+    "data": {
+        "borrower": {
+            "Id": "1234",
+            "Name": "John Smith"
+        }
+    }
+}
+```
+
+## vendor.deleted
+
+```json
+{
+    "event": "vendor.deleted",
+    "data": {
+        "borrower": {
+            "Id": "1234",
+            "Name": "John Smith"
+        }
+    }
+}
+```

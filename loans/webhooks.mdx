@@ -1,0 +1,40 @@
+---
+title: "Webhooks"
+description: "Loan webhook event payloads"
+---
+
+All webhooks events are sent via a POST request with the following payloads:
+
+## loan.created
+
+A new loan is created:
+
+```json
+{
+    "event": "loan.created",
+    "data": {
+        "loan": {
+            "Id": "1234",
+            "Name": "My awesome loan",
+            "Status": "servicing"
+        }
+    }
+}
+```
+
+## loan.updated
+
+An existing loan is updated:
+
+```json
+{
+    "event": "loan.updated",
+    "data": {
+        "loan": {
+            "Id": "1234",
+            "Name": "My awesome loan",
+            "Status": "servicing"
+        }
+    }
+}
+```

@@ -1,0 +1,47 @@
+---
+title: "Get an investor's funding sources"
+description: "Retrieves all funding sources for a specific investor"
+---
+
+`GET /investor/{id}/fundingsources`
+
+## Path Parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | string | Yes | The investor ID |
+
+## Example Response
+
+```json
+{
+  "funding_sources": [
+    {
+      "id": "fs-001",
+      "funding_source_id": "fs-001",
+      "name": "123 Main St Loan",
+      "status": "active",
+      "class": "Senior",
+      "rate": 0.1,
+      "amount": 350000,
+      "original_amount": 350000,
+      "committed_amount": 400000,
+      "invested_balance": 340000,
+      "principal_balance": 330000,
+      "interest_balance": 8500,
+      "other_balance": 0,
+      "date_invested": "2024-01-15",
+      "date_funded": "2024-01-20",
+      "loan_id": "loan-123",
+      "loan_name": "123 Main St",
+      "loan_status": "servicing",
+      "fund_id": null,
+      "fund_name": null,
+      "offering_id": "off-456",
+      "offering_name": "Q1 2024 Fund",
+      "investor_id": "inv-789",
+      "investor_name": "John Smith"
+    }
+  ]
+}
+```

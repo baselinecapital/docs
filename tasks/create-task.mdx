@@ -1,0 +1,33 @@
+---
+title: "Create a new task"
+description: "Create a new task in Baseline"
+---
+
+`POST /task`
+
+## Request Body
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `Name` | string | Task name |
+| `Description` | string | Task description |
+| `Date_Due` | string (YYYY-MM-DD) | Due date |
+| `Status` | enum | `To Do`, `In Progress`, `Done`, `Not Required` |
+| `Loan_Id` | string | ID of a loan to associate with |
+| `Subtasks` | array | Array of subtask objects |
+
+## Example Response
+
+```json
+{
+  "task": {
+    "Id": "1234",
+    "Name": "Validate credit score",
+    "Description": "Check borrower's credit score validity",
+    "Status": "To Do",
+    "Date_Due": "2024-12-12",
+    "Loan_Id": "5678",
+    "Subtasks": [{ "Done": false, "Name": "Archive a credit score report" }]
+  }
+}
+```

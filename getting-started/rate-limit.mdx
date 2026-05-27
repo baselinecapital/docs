@@ -1,0 +1,35 @@
+---
+title: "Rate Limits"
+description: "Understanding API rate limits"
+---
+
+The Baseline API enforces rate limits to ensure fair usage and system stability.
+
+## Limits
+
+- **Requests per minute:** 60 requests per API key
+- **Requests per day:** 10,000 requests per API key
+
+## Rate Limit Headers
+
+Each response includes headers indicating your current rate limit status:
+
+| Header | Description |
+| --- | --- |
+| `X-RateLimit-Limit` | Maximum requests allowed per window |
+| `X-RateLimit-Remaining` | Requests remaining in the current window |
+| `X-RateLimit-Reset` | Unix timestamp when the window resets |
+
+## Exceeded Limits
+
+When you exceed the rate limit, the API returns a `429 Too Many Requests` response:
+
+```json
+{
+  "error": "Rate limit exceeded. Please retry after the reset time."
+}
+```
+
+<Tip>
+  If you need higher rate limits for your use case, contact the Baseline team.
+</Tip>

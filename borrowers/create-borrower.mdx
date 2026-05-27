@@ -1,0 +1,49 @@
+---
+title: "Create a new borrower"
+description: "Create a new borrower in Baseline"
+---
+
+`POST /borrower`
+
+## Request Body
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `Name` | string | Full name |
+| `First_Name` | string | First name |
+| `Last_Name` | string | Last name |
+| `Phone` | string | Phone in format 12345678901 |
+| `Phone_Secondary` | string | Secondary phone number |
+| `Email` | string | Primary email address |
+| `Other_Email` | string | Secondary email address |
+| `Date_Birth` | string (YYYY-MM-DD) | Date of birth |
+| `Is_Company` | boolean | Whether this is a company |
+| `Address_Street1` | string | Street address line 1 |
+| `Address_Street2` | string | Street address line 2 |
+| `Address_City` | string | City |
+| `Address_State` | string | State |
+| `Address_Country` | string | Country |
+
+## Example Response
+
+```json
+{
+  "borrower": {
+    "Id": "1234",
+    "Name": "John Smith",
+    "First_Name": null,
+    "Last_Name": null,
+    "Phone": "12345678901",
+    "Phone_Secondary": null,
+    "Email": "john.smith@mailsac.com",
+    "Other_Email": "john.smith@mailsac.com",
+    "Date_Birth": "2000-01-01",
+    "Is_Company": false,
+    "Address_Street1": "123 Main St.",
+    "Address_Street2": null,
+    "Address_City": "New York",
+    "Address_State": "NY",
+    "Address_Country": "US"
+  }
+}
+```

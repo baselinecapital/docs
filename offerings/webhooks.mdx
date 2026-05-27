@@ -1,0 +1,34 @@
+---
+title: "Offerings Webhooks"
+description: "Offering webhook event payloads"
+---
+
+All webhook events are sent via a POST request with the following payloads:
+
+## offering.created
+
+```json
+{
+    "event": "offering.created",
+    "data": {
+        "offering": {
+            "Id": "1234",
+            "Name": "Q1 2024 Fund"
+        }
+    }
+}
+```
+
+## offering.updated
+
+```json
+{
+    "event": "offering.updated",
+    "data": {
+        "offering": {
+            "Id": "1234",
+            "Name": "Q1 2024 Fund"
+        }
+    }
+}
+```

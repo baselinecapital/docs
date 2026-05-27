@@ -1,0 +1,69 @@
+---
+title: "Quickstart"
+description: "Try the Graph API with example queries"
+---
+
+`POST /graph`
+
+Try the Graph API directly. Send a GraphQL query and see the response.
+
+## Request Body
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| `query` | string | Yes | A GraphQL query string (default: `{ loans(limit: 5, order_by: {created_at: desc}) { id name amount status rate date_maturity } }`) |
+| `variables` | object | No | Variables referenced in the query |
+| `operationName` | string | No | The name of the operation to execute |
+
+## Example Requests
+
+### Get recent loans
+
+```json
+{
+  "query": "{ loans(limit: 5, order_by: {created_at: desc}) { id name amount status rate date_maturity } }"
+}
+```
+
+### Get loans with borrowers
+
+```json
+{
+  "query": "{ loans(where: {status: {_eq: \"servicing\"}}, limit: 10) { id name amount borrows { person { name email } } } }"
+}
+```
+
+### Portfolio summary
+
+```json
+{
+  "query": "{ loans_aggregate(where: {status: {_eq: \"servicing\"}}) { aggregate { count sum { amount } avg { rate } } } }"
+}
+```
+
+### Introspect schema
+
+```json
+{
+  "query": "{ __schema { types { name fields { name type { name } } } } }"
+}
+```
+
+## Example Response
+
+```json
+{
+  "data": {
+    "loans": [
+      {
+        "id": "abc-123",
+        "name": "123 Main St",
+        "amount": 350000,
+        "status": "servicing",
+        "rate": 0.0925,
+        "date_maturity": "2025-12-31"
+      }
+    ]
+  }
+}
+```

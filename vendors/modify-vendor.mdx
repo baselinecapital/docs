@@ -1,0 +1,38 @@
+---
+title: "Modify an existing vendor"
+description: "Update an existing vendor's information"
+---
+
+`PATCH /vendor/{id}`
+
+## Path Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `id` | string | ID of a vendor |
+
+## Request Body
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `Name` | string | Full name |
+| `First_Name` | string | First name |
+| `Last_Name` | string | Last name |
+| `Phone` | string | Phone in format 12345678901 |
+| `Date_Birth` | string (YYYY-MM-DD) | Date of birth |
+| `Is_Company` | boolean | Whether this is a company |
+| `Address_Street1` | string | Street address line 1 |
+| `Address_City` | string | City |
+| `Address_State` | string | State |
+| `Address_Country` | string | Country |
+
+## Example Response
+
+```json
+{
+  "vendor": {
+    "Id": "1234",
+    "Name": "John Smith"
+  }
+}
+```

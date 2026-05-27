@@ -1,0 +1,43 @@
+---
+title: "Get a loan"
+description: "Returns a loan including its address and borrower"
+---
+
+`GET /loan/{id}`
+
+## Path Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `id` | string | Loan ID |
+
+## Example Response
+
+```json
+{
+  "loan": {
+    "Id": "1234",
+    "Name": "My awesome loan",
+    "Status": "servicing",
+    "Address_Street1": "1234 Main St",
+    "Address_City": "Flint",
+    "Address_State": "Michigan",
+    "Address_Zipcode": "123456",
+    "Address_Country": "United States",
+    "Borrower_Name": "Acme Co",
+    "Borrower_Email": "email@example.com",
+    "Loan_Amount": 326000,
+    "Rate": 0.1095,
+    "Term": 5,
+    "Origination": "2023-03-31",
+    "Maturity": "2023-08-31",
+    "Rate_Type": "Fixed",
+    "Frequency": "Monthly",
+    "Amortization_Type": "Interest-Only",
+    "First_Payment": "2023-05-31",
+    "Principal_Interest": 2974.75,
+    "Regular_Payment": 2974.75,
+    "Per_Diem": 97.8
+  }
+}
+```

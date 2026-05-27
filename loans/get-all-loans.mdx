@@ -1,0 +1,47 @@
+---
+title: "Get all loans"
+description: "Returns a list of all loans in your account"
+---
+
+`GET /loan`
+
+Returns a list of all loans in your account. Only basic information about the loans is returned. For full records, see [Get a loan](/loans/get-loan). If `format=csv` is sent, the full loan tape with all custom fields is returned.
+
+## Query Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `format` | enum | Response format: `json` (default) or `csv` |
+
+## CSV Format
+
+When `format=csv` is passed, the API returns a **302 redirect** to a signed download URL for a CSV file containing your full loan tape.
+
+```bash
+curl -L -X GET "https://production.baselinesoftware.com/production/api/loan?format=csv" \
+  -H "Authorization: Token your-api-key" \
+  -o loan_tape.csv
+```
+
+<Note>
+  Use the `-L` flag (or your HTTP client's follow-redirects option) to automatically follow the redirect to the download URL.
+</Note>
+
+## Example Response (JSON)
+
+```json
+{
+  "loans": [
+    {
+      "Id": "4299562",
+      "Name": "123 Main St",
+      "Status": "servicing",
+      "Substatus": null,
+      "Created_Date": "2024-06-15",
+      "Account_Owners": [
+        { "Id": "ao-001", "Name": "Jane Doe" }
+      ]
+    }
+  ]
+}
+```

@@ -1,0 +1,25 @@
+---
+title: "Delete a vendor from another vendor"
+description: "Will disconnect a person from a company or vice versa"
+---
+
+`DELETE /vendor/{id}/connect/{to}`
+
+## Path Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `id` | string | ID of a vendor |
+| `to` | string | ID of a vendor to disconnect from |
+
+## Example Response
+
+```json
+{
+  "vendor": {
+    "Id": "1234",
+    "Name": "John Smith",
+    "Companies": []
+  }
+}
+```

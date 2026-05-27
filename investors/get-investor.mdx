@@ -1,0 +1,25 @@
+---
+title: "Get an investor"
+description: "Retrieve a single investor by ID"
+---
+
+`GET /investor/{id}`
+
+## Path Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `id` | string | ID of an investor |
+
+## Example Response
+
+```json
+{
+  "investor": {
+    "Id": "1234",
+    "Name": "John Smith",
+    "Email": "john.smith@mailsac.com",
+    "Is_Company": false
+  }
+}
+```

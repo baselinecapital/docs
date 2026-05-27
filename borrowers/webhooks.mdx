@@ -1,0 +1,54 @@
+---
+title: "Webhooks"
+description: "Borrower webhook event payloads"
+---
+
+All webhook events are sent via a POST request with the following payloads:
+
+## borrower.created
+
+A new borrower is created:
+
+```json
+{
+    "event": "borrower.created",
+    "data": {
+        "borrower": {
+            "Id": "1234",
+            "Name": "John Smith"
+        }
+    }
+}
+```
+
+## borrower.updated
+
+An existing borrower is updated:
+
+```json
+{
+    "event": "borrower.updated",
+    "data": {
+        "borrower": {
+            "Id": "1234",
+            "Name": "John Smith"
+        }
+    }
+}
+```
+
+## borrower.deleted
+
+A borrower is deleted:
+
+```json
+{
+    "event": "borrower.deleted",
+    "data": {
+        "borrower": {
+            "Id": "1234",
+            "Name": "John Smith"
+        }
+    }
+}
+```

@@ -1,0 +1,35 @@
+---
+title: "Modify an existing task"
+description: "Update an existing task"
+---
+
+`PATCH /task/{id}`
+
+## Path Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `id` | string | Task ID |
+
+## Request Body
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `Name` | string | Task name |
+| `Description` | string | Task description |
+| `Date_Due` | string (YYYY-MM-DD) | Due date |
+| `Status` | enum | `To Do`, `In Progress`, `Done`, `Not Required` |
+| `Loan_Id` | string | ID of a loan to associate with |
+| `Subtasks` | array | Array of subtask objects |
+
+## Example Response
+
+```json
+{
+  "task": {
+    "Id": "1234",
+    "Name": "Validate credit score",
+    "Status": "In Progress"
+  }
+}
+```

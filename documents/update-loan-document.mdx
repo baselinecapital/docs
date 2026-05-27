@@ -1,0 +1,50 @@
+---
+title: "Update a loan document"
+description: "Updates an existing document on a loan"
+---
+
+`PATCH /loan/{id}/document/{document_id}`
+
+Updates an existing document on a loan. You can update both the document properties and its loan-specific properties (order, section, instructions).
+
+<Warning>
+  `Borrower_Id`, `Guarantor_Id`, and `Fund_Id` cannot be updated via this endpoint.
+</Warning>
+
+## Path Parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | string | Yes | The loan ID or loan number |
+| `document_id` | string | Yes | The document ID to update |
+
+## Request Body
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `Name` | string | Document name |
+| `Description` | string | Document description |
+| `Status` | string | Document status |
+| `Summary` | string | Document summary |
+| `Is_Shared` | boolean | Whether shared with borrower |
+| `Uploaded_Date` | string | ISO 8601 upload date |
+| `Requested_Date` | string | ISO 8601 requested date |
+| `Expired_Date` | string | ISO 8601 expiry date |
+| `Shared_Date` | string | ISO 8601 shared date |
+| `Order` | integer | Display order |
+| `Section` | string | Section the document belongs to |
+| `Instructions` | string | Instructions |
+
+## Example Response
+
+```json
+{
+  "document": {
+    "Id": "doc-456",
+    "Name": "Updated Promissory Note",
+    "Status": "approved",
+    "Is_Shared": true,
+    "Download_Url": "https://signed-url..."
+  }
+}
+```

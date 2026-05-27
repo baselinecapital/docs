@@ -1,0 +1,33 @@
+---
+title: "Get a loan's trust balances"
+description: "Returns the balances of all trusts in a loan"
+---
+
+`GET /loan/{id}/trust`
+
+Returns the balances of all trusts in a loan.
+
+## Path Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `id` | string | Loan ID |
+
+## Example Response
+
+```json
+{
+    "trusts": [
+        {
+            "Id": "1234",
+            "Name": "Reserve",
+            "Balance": 1000
+        },
+        {
+            "Id": "5678",
+            "Name": "Escrow",
+            "Balance": 5000
+        }
+    ]
+}
+```
