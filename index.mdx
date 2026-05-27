@@ -1,133 +1,53 @@
 ---
 title: "Introduction"
-description: "Welcome to the new home for your documentation"
-icon: 'star'
+description: "The Baseline API for private lenders"
 ---
 
-## Setting up
+The Baseline API is a modern, RESTful interface for the Baseline private lending platform. Create loans, sync borrower data, manage documents, and integrate external systems into your lending lifecycle.
 
-Get your documentation site up and running in minutes.
-
-<Card
-  title="Start here"
-  icon="rocket"
-  href="/quickstart"
-  horizontal
->
-  Follow our three step quickstart guide.
-</Card>
-
-## Make it yours
-
-Design a docs site that looks great and empowers your users.
-
-<Columns cols={2}>
-  <Card
-    title="Edit locally"
-    icon="pen-to-square"
-    href="/development"
-  >
-    Edit your docs locally and preview them in real time.
+<CardGroup cols={2}>
+  <Card title="Authentication" icon="key" href="/getting-started/authentication">
+    Learn how to authenticate your API requests.
   </Card>
-  <Card
-    title="Customize your site"
-    icon="palette"
-    href="/essentials/settings"
-  >
-    Customize the design and colors of your site to match your brand.
+  <Card title="Request API Keys" icon="envelope" href="/getting-started/requesting-api-keys">
+    Contact the Baseline team to get your API key.
   </Card>
-    <Card
-    title="Set up navigation"
-    icon="map"
-    href="/essentials/navigation"
-  >
-    Organize your docs to help users find what they need and succeed with your product.
+  <Card title="Rate Limits" icon="gauge" href="/getting-started/rate-limit">
+    Understand rate limiting and best practices.
   </Card>
-  <Card
-    title="API documentation"
-    icon="terminal"
-    href="/api-reference/introduction"
-  >
-    Auto-generate API documentation from OpenAPI specifications.
+  <Card title="Graph API" icon="diagram-project" href="/everything-api/graph-api">
+    Query your data with our powerful GraphQL interface.
   </Card>
-</Columns>
+</CardGroup>
 
-## Create beautiful pages
+## REST API
 
-Everything you need to create world-class documentation.
+Manage your lending data through our REST endpoints.
 
-<Columns cols={2}>
-  <Card
-    title="Write with MDX"
-    icon="pen-fancy"
-    href="/essentials/markdown"
-  >
-    Use MDX to style your docs pages.
+<CardGroup cols={3}>
+  <Card title="Loans" icon="file-invoice-dollar" href="/loans/create-loan">
+    Create, update, and query loans.
   </Card>
-  <Card
-    title="Code samples"
-    icon="code"
-    href="/essentials/code"
-  >
-    Add sample code to demonstrate how to use your product.
+  <Card title="Borrowers" icon="user" href="/borrowers/create-borrower">
+    Manage borrower records.
   </Card>
-  <Card
-    title="Images"
-    icon="image"
-    href="/essentials/images"
-  >
-    Display images and other media.
+  <Card title="Investors" icon="building-columns" href="/investors/create-investor">
+    Manage investor and fund data.
   </Card>
-  <Card
-    title="Reusable snippets"
-    icon="recycle"
-    href="/essentials/reusable-snippets"
-  >
-    Write once and reuse across your docs.
+  <Card title="Documents" icon="file" href="/documents/create-loan-document">
+    Upload and manage loan documents.
   </Card>
-</Columns>
+  <Card title="Tasks" icon="list-check" href="/tasks/create-task">
+    Create and track tasks.
+  </Card>
+  <Card title="Vendors" icon="truck" href="/vendors/create-vendor">
+    Manage vendor relationships.
+  </Card>
+</CardGroup>
 
-## Make your content agent ready
+## Base URL
 
-Make your docs work for humans and AI agents alike.
-
-<Columns cols={2}>
-  <Card
-    title="Prompt component"
-    icon="robot"
-    href="/agent-ready/prompt"
-  >
-    Embed shareable AI prompts readers can copy or open in Cursor.
-  </Card>
-  <Card
-    title="Visibility"
-    icon="eye"
-    href="/agent-ready/visibility"
-  >
-    Show different content to humans and agents reading your docs.
-  </Card>
-  <Card
-    title="Contextual menu"
-    icon="bolt"
-    href="/agent-ready/contextual"
-  >
-    Give readers one-click access to Claude, ChatGPT, Cursor, and more.
-  </Card>
-  <Card
-    title="AI coding tools"
-    icon="wand-magic-sparkles"
-    href="/ai-tools/claude-code"
-  >
-    Set up Claude Code, Cursor, or Windsurf with Mintlify's skill.
-  </Card>
-</Columns>
-
-## Need inspiration?
-
-<Card
-  title="See complete examples"
-  icon="stars"
-  href="https://mintlify.com/customers"
->
-  Browse our showcase of exceptional documentation sites.
-</Card>
+| Environment | Base URL |
+| --- | --- |
+| Production | `https://production.baselinesoftware.com/production/api` |
+| Staging | `https://staging.baselinesoftware.com/staging/api` |
