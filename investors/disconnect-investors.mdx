@@ -1,16 +1,19 @@
 ---
 title: "Delete an investor from another investor"
 description: "Will disconnect a person from a company or vice versa"
+api: "DELETE /investor/{id}/connect/{to}"
 ---
 
-`DELETE /investor/{id}/connect/{to}`
 
 ## Path Parameters
 
-| Parameter | Type | Description |
-| --- | --- | --- |
-| `id` | string | ID of an investor |
-| `to` | string | ID of an investor to disconnect from |
+<ParamField path="id" type="string">
+  ID of an investor
+</ParamField>
+
+<ParamField path="to" type="string">
+  ID of an investor to disconnect from
+</ParamField>
 
 ## Example Response
 

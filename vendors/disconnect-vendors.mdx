@@ -1,16 +1,19 @@
 ---
 title: "Delete a vendor from another vendor"
 description: "Will disconnect a person from a company or vice versa"
+api: "DELETE /vendor/{id}/connect/{to}"
 ---
 
-`DELETE /vendor/{id}/connect/{to}`
 
 ## Path Parameters
 
-| Parameter | Type | Description |
-| --- | --- | --- |
-| `id` | string | ID of a vendor |
-| `to` | string | ID of a vendor to disconnect from |
+<ParamField path="id" type="string">
+  ID of a vendor
+</ParamField>
+
+<ParamField path="to" type="string">
+  ID of a vendor to disconnect from
+</ParamField>
 
 ## Example Response
 

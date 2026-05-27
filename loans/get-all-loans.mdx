@@ -1,17 +1,17 @@
 ---
 title: "Get all loans"
 description: "Returns a list of all loans in your account"
+api: "GET /loan"
 ---
 
-`GET /loan`
 
 Returns a list of all loans in your account. Only basic information about the loans is returned. For full records, see [Get a loan](/loans/get-loan). If `format=csv` is sent, the full loan tape with all custom fields is returned.
 
 ## Query Parameters
 
-| Parameter | Type | Description |
-| --- | --- | --- |
-| `format` | enum | Response format: `json` (default) or `csv` |
+<ParamField query="format" type="enum">
+  Response format: `json` (default) or `csv`
+</ParamField>
 
 ## CSV Format
 

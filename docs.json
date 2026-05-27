@@ -1,13 +1,23 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mintlify Starter Kit",
+  "name": "Baseline",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#45396A",
+    "light": "#8e7fbb",
+    "dark": "#312a4c"
   },
   "favicon": "/favicon.svg",
+  "api": {
+    "mdx": {
+      "server": "https://production.baselinesoftware.com/production/api",
+      "auth": {
+        "method": "key",
+        "name": "Authorization",
+        "inputPrefix": "Token "
+      }
+    }
+  },
   "navigation": {
     "tabs": [
       {
@@ -16,57 +26,110 @@
           {
             "group": "Getting started",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
-            ]
-          },
-          {
-            "group": "Customization",
-            "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/components",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "Agent ready",
-            "pages": [
-              "agent-ready/prompt",
-              "agent-ready/visibility",
-              "agent-ready/contextual",
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "getting-started/intro",
+              "getting-started/authentication",
+              "getting-started/requesting-api-keys",
+              "getting-started/rate-limit"
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "API Reference",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Loans",
             "pages": [
-              "api-reference/introduction"
+              "loans/create-loan",
+              "loans/get-all-loans",
+              "loans/get-loan",
+              "loans/modify-loan",
+              "loans/add-address",
+              "loans/update-address",
+              "loans/remove-address",
+              "loans/get-loan-ledger",
+              "loans/get-loan-trust-balances",
+              "loans/webhooks"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "Borrowers",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "borrowers/create-borrower",
+              "borrowers/get-all-borrowers",
+              "borrowers/get-borrower",
+              "borrowers/modify-borrower",
+              "borrowers/connect-borrowers",
+              "borrowers/disconnect-borrowers",
+              "borrowers/delete-borrower",
+              "borrowers/webhooks"
+            ]
+          },
+          {
+            "group": "Investors",
+            "pages": [
+              "investors/create-investor",
+              "investors/get-all-investors",
+              "investors/get-investor",
+              "investors/modify-investor",
+              "investors/get-investor-funding-sources",
+              "investors/get-fund-funding-sources",
+              "investors/connect-investors",
+              "investors/disconnect-investors",
+              "investors/delete-investor",
+              "investors/webhooks"
+            ]
+          },
+          {
+            "group": "Documents",
+            "pages": [
+              "documents/create-loan-document",
+              "documents/get-loan-documents",
+              "documents/update-loan-document",
+              "documents/delete-loan-document"
+            ]
+          },
+          {
+            "group": "Tasks",
+            "pages": [
+              "tasks/create-task",
+              "tasks/get-all-tasks",
+              "tasks/get-task",
+              "tasks/modify-task",
+              "tasks/delete-task"
+            ]
+          },
+          {
+            "group": "Vendors",
+            "pages": [
+              "vendors/create-vendor",
+              "vendors/get-all-vendors",
+              "vendors/get-vendor",
+              "vendors/modify-vendor",
+              "vendors/connect-vendors",
+              "vendors/disconnect-vendors",
+              "vendors/delete-vendor",
+              "vendors/webhooks"
+            ]
+          },
+          {
+            "group": "Offerings",
+            "pages": [
+              "offerings/webhooks"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Graph API",
+        "groups": [
+          {
+            "group": "Graph API",
+            "pages": [
+              "everything-api/graph-api",
+              "everything-api/quickstart",
+              "everything-api/available-tables-and-fields",
+              "everything-api/examples"
             ]
           }
         ]
@@ -75,14 +138,14 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "anchor": "API Reference",
+          "href": "/loans/create-loan",
+          "icon": "code"
         },
         {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "Graph API",
+          "href": "/everything-api/graph-api",
+          "icon": "diagram-project"
         }
       ]
     }
@@ -94,33 +157,24 @@
   "navbar": {
     "links": [
       {
+        "label": "Website",
+        "href": "https://www.baselinesoftware.com"
+      },
+      {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:support@baselinesoftware.com"
       }
     ],
     "primary": {
       "type": "button",
       "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "href": "https://app.baselinesoftware.com"
     }
-  },
-  "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "linkedin": "https://www.linkedin.com/company/baselinelending",
+      "website": "https://www.baselinesoftware.com"
     }
   }
 }

@@ -1,16 +1,19 @@
 ---
 title: "Delete a borrower from another borrower"
 description: "Will disconnect a person from a company or vice versa"
+api: "DELETE /borrower/{id}/connect/{to}"
 ---
 
-`DELETE /borrower/{id}/connect/{to}`
 
 ## Path Parameters
 
-| Parameter | Type | Description |
-| --- | --- | --- |
-| `id` | string | ID of a borrower |
-| `to` | string | ID of a borrower to disconnect from |
+<ParamField path="id" type="string">
+  ID of a borrower
+</ParamField>
+
+<ParamField path="to" type="string">
+  ID of a borrower to disconnect from
+</ParamField>
 
 ## Example Response
 

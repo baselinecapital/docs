@@ -1,16 +1,19 @@
 ---
 title: "Get all borrowers"
 description: "Retrieve a paginated list of all borrowers"
+api: "GET /borrower"
 ---
 
-`GET /borrower`
 
 ## Query Parameters
 
-| Parameter | Type | Description |
-| --- | --- | --- |
-| `page` | object | Pagination parameters |
-| `format` | enum | Response format: `json` or `csv` |
+<ParamField query="page" type="object">
+  Pagination parameters
+</ParamField>
+
+<ParamField query="format" type="enum">
+  Response format: `json` or `csv`
+</ParamField>
 
 ## Example Response
 

@@ -1,17 +1,17 @@
 ---
 title: "Get loan documents"
 description: "Retrieves all documents associated with a specific loan"
+api: "GET /loan/{id}/document"
 ---
 
-`GET /loan/{id}/document`
 
 Retrieves all documents associated with a specific loan. Each document includes signed upload and download URLs for file management. Documents are returned sorted by Order (ascending), then by Name (ascending).
 
 ## Path Parameters
 
-| Parameter | Type | Required | Description |
-| --- | --- | --- | --- |
-| `id` | string | Yes | The loan ID or loan number |
+<ParamField path="id" type="string" required>
+  The loan ID or loan number
+</ParamField>
 
 ## Example Response
 

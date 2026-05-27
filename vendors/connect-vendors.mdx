@@ -1,16 +1,19 @@
 ---
 title: "Connect a vendor to another vendor"
 description: "Will connect a person to a company or vice versa"
+api: "PUT /vendor/{id}/connect/{to}"
 ---
 
-`PUT /vendor/{id}/connect/{to}`
 
 ## Path Parameters
 
-| Parameter | Type | Description |
-| --- | --- | --- |
-| `id` | string | ID of a vendor |
-| `to` | string | ID of a vendor to connect to |
+<ParamField path="id" type="string">
+  ID of a vendor
+</ParamField>
+
+<ParamField path="to" type="string">
+  ID of a vendor to connect to
+</ParamField>
 
 ## Example Response
 

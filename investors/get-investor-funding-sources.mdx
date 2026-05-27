@@ -1,15 +1,15 @@
 ---
 title: "Get an investor's funding sources"
 description: "Retrieves all funding sources for a specific investor"
+api: "GET /investor/{id}/fundingsources"
 ---
 
-`GET /investor/{id}/fundingsources`
 
 ## Path Parameters
 
-| Parameter | Type | Required | Description |
-| --- | --- | --- | --- |
-| `id` | string | Yes | The investor ID |
+<ParamField path="id" type="string" required>
+  The investor ID
+</ParamField>
 
 ## Example Response
 

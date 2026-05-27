@@ -1,16 +1,19 @@
 ---
 title: "Connect an investor to another investor"
 description: "Will connect a person to a company or vice versa"
+api: "PUT /investor/{id}/connect/{to}"
 ---
 
-`PUT /investor/{id}/connect/{to}`
 
 ## Path Parameters
 
-| Parameter | Type | Description |
-| --- | --- | --- |
-| `id` | string | ID of an investor |
-| `to` | string | ID of an investor to connect to |
+<ParamField path="id" type="string">
+  ID of an investor
+</ParamField>
+
+<ParamField path="to" type="string">
+  ID of an investor to connect to
+</ParamField>
 
 ## Example Response
 

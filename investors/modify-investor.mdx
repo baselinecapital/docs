@@ -1,32 +1,65 @@
 ---
 title: "Modify an existing investor"
 description: "Update an existing investor's information"
+api: "PATCH /investor/{id}"
 ---
 
-`PATCH /investor/{id}`
 
 ## Path Parameters
 
-| Parameter | Type | Description |
-| --- | --- | --- |
-| `id` | string | ID of an investor |
+<ParamField path="id" type="string">
+  ID of an investor
+</ParamField>
 
 ## Request Body
 
-| Parameter | Type | Description |
-| --- | --- | --- |
-| `Name` | string | Full name |
-| `First_Name` | string | First name |
-| `Last_Name` | string | Last name |
-| `Phone` | string | Phone in format 12345678901 |
-| `Phone_Secondary` | string | Secondary phone number |
-| `Date_Birth` | string (YYYY-MM-DD) | Date of birth |
-| `Is_Company` | boolean | Whether this is a company |
-| `Address_Street1` | string | Street address line 1 |
-| `Address_Street2` | string | Street address line 2 |
-| `Address_City` | string | City |
-| `Address_State` | string | State |
-| `Address_Country` | string | Country |
+<ParamField body="Name" type="string">
+  Full name
+</ParamField>
+
+<ParamField body="First_Name" type="string">
+  First name
+</ParamField>
+
+<ParamField body="Last_Name" type="string">
+  Last name
+</ParamField>
+
+<ParamField body="Phone" type="string">
+  Phone in format 12345678901
+</ParamField>
+
+<ParamField body="Phone_Secondary" type="string">
+  Secondary phone number
+</ParamField>
+
+<ParamField body="Date_Birth" type="string">
+  Date of birth
+</ParamField>
+
+<ParamField body="Is_Company" type="boolean">
+  Whether this is a company
+</ParamField>
+
+<ParamField body="Address_Street1" type="string">
+  Street address line 1
+</ParamField>
+
+<ParamField body="Address_Street2" type="string">
+  Street address line 2
+</ParamField>
+
+<ParamField body="Address_City" type="string">
+  City
+</ParamField>
+
+<ParamField body="Address_State" type="string">
+  State
+</ParamField>
+
+<ParamField body="Address_Country" type="string">
+  Country
+</ParamField>
 
 ## Example Response
 

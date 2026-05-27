@@ -1,31 +1,73 @@
 ---
 title: "Create a new loan"
 description: "Create a new loan in Baseline"
+api: "POST /loan"
 ---
 
-`POST /loan`
 
 All fields are optional. Any field available in the default product in your account can be set via a body parameter using its name. For example, a field named "Foo Bar" can be set by sending `{Foo_Bar:1234}` in the request.
 
 ## Request Body
 
-| Parameter | Type | Description |
-| --- | --- | --- |
-| `Id` | string | (Optional) If not set, an ID will be generated automatically. |
-| `Name` | string | Loan name |
-| `Status` | enum | `lead`, `processing`, `underwriting`, `approved`, `closed`, `servicing`, `archived` (default: `servicing`) |
-| `Borrower_Name` | string | Borrower full name |
-| `Borrower_Email` | string | If a borrower with the same verified email already exists, that borrower will be attached. If not, a new borrower will be created. |
-| `Borrower_Id` | string | If a borrower with the same ID already exists, that borrower will be attached. If not, a new borrower will be created. |
-| `Address_Street1` | string | Street address |
-| `Address_City` | string | City |
-| `Address_State` | string | State |
-| `Address_Zipcode` | string | Zip code |
-| `Loan_Amount` | float | Loan amount |
-| `Rate` | float | Interest rate |
-| `Origination` | date (YYYY-MM-DD) | Origination date |
-| `Maturity` | date (YYYY-MM-DD) | Maturity date |
-| `Addresses` | array | Additional collateral addresses |
+<ParamField body="Id" type="string">
+  (Optional) If not set, an ID will be generated automatically.
+</ParamField>
+
+<ParamField body="Name" type="string">
+  Loan name
+</ParamField>
+
+<ParamField body="Status" type="enum">
+  `lead`, `processing`, `underwriting`, `approved`, `closed`, `servicing`, `archived` (default: `servicing`)
+</ParamField>
+
+<ParamField body="Borrower_Name" type="string">
+  Borrower full name
+</ParamField>
+
+<ParamField body="Borrower_Email" type="string">
+  If a borrower with the same verified email already exists, that borrower will be attached. If not, a new borrower will be created.
+</ParamField>
+
+<ParamField body="Borrower_Id" type="string">
+  If a borrower with the same ID already exists, that borrower will be attached. If not, a new borrower will be created.
+</ParamField>
+
+<ParamField body="Address_Street1" type="string">
+  Street address
+</ParamField>
+
+<ParamField body="Address_City" type="string">
+  City
+</ParamField>
+
+<ParamField body="Address_State" type="string">
+  State
+</ParamField>
+
+<ParamField body="Address_Zipcode" type="string">
+  Zip code
+</ParamField>
+
+<ParamField body="Loan_Amount" type="float">
+  Loan amount
+</ParamField>
+
+<ParamField body="Rate" type="float">
+  Interest rate
+</ParamField>
+
+<ParamField body="Origination" type="date">
+  Origination date
+</ParamField>
+
+<ParamField body="Maturity" type="date">
+  Maturity date
+</ParamField>
+
+<ParamField body="Addresses" type="array">
+  Additional collateral addresses
+</ParamField>
 
 ## Example Response
 

@@ -1,35 +1,77 @@
 ---
 title: "Create a loan document"
 description: "Creates a new document and associates it with the specified loan"
+api: "POST /loan/{id}/document"
 ---
 
-`POST /loan/{id}/document`
 
 ## Path Parameters
 
-| Parameter | Type | Required | Description |
-| --- | --- | --- | --- |
-| `id` | string | Yes | The loan ID or loan number |
+<ParamField path="id" type="string" required>
+  The loan ID or loan number
+</ParamField>
 
 ## Request Body
 
-| Parameter | Type | Required | Description |
-| --- | --- | --- | --- |
-| `Name` | string | Yes | Document name |
-| `Description` | string | No | Document description |
-| `Status` | string | No | Document status (e.g., pending, approved) |
-| `Summary` | string | No | Document summary |
-| `Is_Shared` | boolean | No | Whether the document is shared with the borrower |
-| `Uploaded_Date` | string | No | ISO 8601 date when the file was uploaded |
-| `Requested_Date` | string | No | ISO 8601 date when the document was requested |
-| `Expired_Date` | string | No | ISO 8601 date when the document expires |
-| `Shared_Date` | string | No | ISO 8601 date when the document was shared |
-| `Borrower_Id` | string | No | ID of the borrower to associate |
-| `Guarantor_Id` | string | No | ID of the guarantor to associate |
-| `Fund_Id` | string | No | ID of the fund to associate |
-| `Order` | integer | No | Display order |
-| `Section` | string | No | Section the document belongs to |
-| `Instructions` | string | No | Instructions for the document |
+<ParamField body="Name" type="string" required>
+  Document name
+</ParamField>
+
+<ParamField body="Description" type="string">
+  Document description
+</ParamField>
+
+<ParamField body="Status" type="string">
+  Document status (e.g., pending, approved)
+</ParamField>
+
+<ParamField body="Summary" type="string">
+  Document summary
+</ParamField>
+
+<ParamField body="Is_Shared" type="boolean">
+  Whether the document is shared with the borrower
+</ParamField>
+
+<ParamField body="Uploaded_Date" type="string">
+  ISO 8601 date when the file was uploaded
+</ParamField>
+
+<ParamField body="Requested_Date" type="string">
+  ISO 8601 date when the document was requested
+</ParamField>
+
+<ParamField body="Expired_Date" type="string">
+  ISO 8601 date when the document expires
+</ParamField>
+
+<ParamField body="Shared_Date" type="string">
+  ISO 8601 date when the document was shared
+</ParamField>
+
+<ParamField body="Borrower_Id" type="string">
+  ID of the borrower to associate
+</ParamField>
+
+<ParamField body="Guarantor_Id" type="string">
+  ID of the guarantor to associate
+</ParamField>
+
+<ParamField body="Fund_Id" type="string">
+  ID of the fund to associate
+</ParamField>
+
+<ParamField body="Order" type="integer">
+  Display order
+</ParamField>
+
+<ParamField body="Section" type="string">
+  Section the document belongs to
+</ParamField>
+
+<ParamField body="Instructions" type="string">
+  Instructions for the document
+</ParamField>
 
 ## Example Response
 

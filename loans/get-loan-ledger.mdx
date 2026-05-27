@@ -1,17 +1,17 @@
 ---
 title: "Get a loan's ledger"
 description: "Returns the top 50 transactions in the ledger of the loan"
+api: "GET /loan/{id}/transaction"
 ---
 
-`GET /loan/{id}/transaction`
 
 Returns the top 50 transactions in the ledger of the loan. Associated payment, person, trust, and charge details are included in each record if applicable.
 
 ## Path Parameters
 
-| Parameter | Type | Description |
-| --- | --- | --- |
-| `id` | string | Loan ID |
+<ParamField path="id" type="string">
+  Loan ID
+</ParamField>
 
 ## Example Response
 

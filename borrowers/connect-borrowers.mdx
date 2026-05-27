@@ -1,16 +1,19 @@
 ---
 title: "Connect a borrower to another borrower"
 description: "Will connect a person to a company or vice versa"
+api: "PUT /borrower/{id}/connect/{to}"
 ---
 
-`PUT /borrower/{id}/connect/{to}`
 
 ## Path Parameters
 
-| Parameter | Type | Description |
-| --- | --- | --- |
-| `id` | string | ID of a borrower |
-| `to` | string | ID of a borrower to connect to |
+<ParamField path="id" type="string">
+  ID of a borrower
+</ParamField>
+
+<ParamField path="to" type="string">
+  ID of a borrower to connect to
+</ParamField>
 
 ## Example Response
 
